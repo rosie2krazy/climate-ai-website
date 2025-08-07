@@ -1,0 +1,244 @@
+index.html
+style.css
+script.js
+chatbot.js
+games/
+  - game1.html
+  - game1.js
+assets/ (for images, icons, etc.)
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EcoVerse</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>🌍 EcoVerse</h1>
+    <p class="slogan">Explore, Learn, and Act for a Greener Future</p>
+    <nav>
+      <a href="#info">Info</a>
+      <a href="#games">Games</a>
+      <a href="#quiz">Quiz</a>
+      <a href="#eco-tips">Tips</a>
+      <a href="#chatbot">Chatbot</a>
+    </nav>
+  </header>
+
+  <section id="info">
+    <h2>What is Climate Change?</h2>
+    <p>Climate change is the long-term shift in temperatures and weather patterns. It's caused mainly by human activities, especially the burning of fossil fuels.</p>
+  </section>
+
+  <section id="games">
+    <h2>🎮 Educational Game</h2>
+    <a href="games/game1.html">🌱 Play Recycle Rush</a>
+  </section>
+
+  <section id="quiz">
+    <h2>🧠 Quick Climate Quiz</h2>
+    <p>What gas contributes most to global warming?</p>
+    <button onclick="checkAnswer('CO2')">CO2</button>
+    <button onclick="checkAnswer('O2')">O2</button>
+    <p id="quiz-result"></p>
+  </section>
+
+  <section id="eco-tips">
+    <h2>🌿 Daily Eco Tip</h2>
+    <p id="eco-tip">Click below to see a green living tip!</p>
+    <button onclick="showTip()">Get Tip</button>
+  </section>
+
+  <section id="chatbot">
+    <h2>🤖 Ask EcoBot</h2>
+    <div id="chatbox">
+      <div id="messages"></div>
+      <input type="text" id="user-input" placeholder="Ask me about climate..." />
+      <button onclick="sendMessage()">Send</button>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 EcoVerse | Made with 🌿 for the planet</p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="chatbot.js"></script>
+</body>
+</html>
+<style class="css">
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background-color: #e8f5e9;
+  color: #333;
+  padding: 0 10px;
+}
+
+header {
+  background-color: #2e7d32;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+.slogan {
+  font-style: italic;
+  margin-top: -10px;
+}
+
+nav {
+  margin-top: 10px;
+}
+
+nav a {
+  margin: 0 10px;
+  color: white;
+  text-decoration: none;
+}
+
+section {
+  background: white;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+#chatbox {
+  margin-top: 10px;
+  background: #f1f8e9;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+#messages p {
+  margin: 5px 0;
+}
+
+button {
+  background-color: #43a047;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  margin-top: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #2e7d32;
+}
+
+footer {
+  text-align: center;
+  padding: 10px;
+  background-color: #a5d6a7;
+  margin-top: 30px;
+  font-size: 0.9em;
+}
+</style>
+
+<script>.js
+    const tips = [
+  "Turn off lights when you leave a room.",
+  "Use a reusable water bottle.",
+  "Walk or bike short distances.",
+  "Recycle paper, plastic, and metal.",
+  "Plant a tree or support reforestation."
+];
+
+function showTip() {
+  const tip = tips[Math.floor(Math.random() * tips.length)];
+  document.getElementById("eco-tip").innerText = tip;
+}
+
+function checkAnswer(ans) {
+  const result = document.getElementById("quiz-result");
+  if (ans === 'CO2') {
+    result.innerText = "✅ Correct! CO2 is a major contributor.";
+  } else {
+    result.innerText = "❌ Nope! Try again.";
+  }
+}
+
+</script>
+<Chatbot .js
+function sendMessage() {
+  const input = document.getElementById("user-input");
+  const messages = document.getElementById("messages");
+  const userMsg = input.value;
+
+  if (!userMsg) return;
+
+  messages.innerHTML += `<p><strong>You:</strong> ${userMsg}</p>`;
+
+  let botReply = "I'm not sure about that. Ask me something about climate change.";
+
+  if (userMsg.toLowerCase().includes("climate")) {
+    botReply = "Climate change is caused by greenhouse gas emissions from things like cars, factories, and deforestation.";
+  } else if (userMsg.toLowerCase().includes("recycle")) {
+    botReply = "Recycling helps reduce pollution and saves energy!";
+  } else if (userMsg.toLowerCase().includes("help")) {
+    botReply = "You can help by using less plastic, saving energy, and spreading awareness.";
+  } else if (userMsg.toLowerCase().includes("who are you")) {
+    botReply = "I'm EcoBot 🤖, your friendly guide to understanding and fighting climate change!";
+  }
+
+  messages.innerHTML += `<p><strong>EcoBot:</strong> ${botReply}</p>`;
+  input.value = "";
+}
+</Chatbot>
+games/game1.html
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Recycle Rush</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <script src="game1.js"></script>
+  </head>
+  <body>
+    <h2>♻️ Recycle Rush Game</h2>
+    <p>Catch the recyclable items before they fall!</p>
+  </body>
+</html>
+<games/game1.js
+let score = 0;
+let x, y;
+
+function setup() {
+  createCanvas(400, 400);
+  x = random(width);
+  y = 0;
+}
+
+function draw() {
+  background(200);
+  ellipse(x, y, 30, 30);
+  textSize(18);
+  text("Score: " + score, 10, 20);
+
+  y += 3;
+  if (y > height) {
+    y = 0;
+    x = random(width);
+  }
+
+  if (dist(mouseX, height - 20, x, y) < 20) {
+    score++;
+    y = 0;
+    x = random(width);
+  }
+
+  rect(mouseX, height - 20, 40, 10);
+}
+</games/game1.js></20>
+git init
+git add .
+git commit -m "EcoVerse website complete"
+git remote add origin https://github.com/YOUR_USERNAME/ecoverse.git
+git push -u origin master
+
